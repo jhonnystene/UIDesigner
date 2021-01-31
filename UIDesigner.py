@@ -109,10 +109,13 @@ class TextWidget:
 		self.width = render.get_width()
 		self.height = render.get_height()
 		
-		if(outline != None):
-			pygame.draw.rect(surface, outline, pygame.Rect(self.x, self.y, self.width, self.height), 2)
+		drawX = self.x - (self.width / 2)
+		drawY = self.y - (self.height / 2)
 		
-		surface.blit(render, (self.x, self.y))
+		if(outline != None):
+			pygame.draw.rect(surface, outline, pygame.Rect(drawX, drawY, self.width, self.height), 2)
+		
+		surface.blit(render, (drawX, drawY))
 			
 	def drawAt(self, surface, x, y, outline=None):
 		render = None
@@ -127,10 +130,13 @@ class TextWidget:
 		self.width = render.get_width()
 		self.height = render.get_height()
 		
-		if(outline != None):
-			pygame.draw.rect(surface, outline, pygame.Rect(self.x, self.y, self.width, self.height), 2)
+		drawX = x - (self.width / 2)
+		drawY = y - (self.height / 2)
 		
-		surface.blit(render, (x, y))
+		if(outline != None):
+			pygame.draw.rect(surface, outline, pygame.Rect(drawX, drawY, self.width, self.height), 2)
+		
+		surface.blit(render, (drawX, drawY))
 
 	def isOn(self, x, y):
 		if(x > self.x and x < self.x + self.width):

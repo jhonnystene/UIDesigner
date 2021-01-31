@@ -16,6 +16,7 @@ REQUIREMENTS:
 CHANGELOG:
 	Version 1.1.0:
 		+ You can now edit placed widgets
+		+ Widgets are now centered on the cursor
 	
 	Version 1.0.0:
 		+ Initial Release
