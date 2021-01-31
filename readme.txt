@@ -14,5 +14,8 @@ REQUIREMENTS:
 - Pygame
 
 CHANGELOG:
+	Version 1.1.0:
+		+ You can now edit placed widgets
+	
 	Version 1.0.0:
 		+ Initial Release

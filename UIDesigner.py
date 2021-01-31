@@ -23,7 +23,7 @@
 
 import pygame, json
 
-print("UIDesigner version 1.0.0")
+print("UIDesigner version 1.1.0")
 print("By Johnny \"jhonnystene\" Stene.")
 print("jhonnystene@protonmail.com")
 print("This program is free software; you can redistribute it and/or modify")
@@ -74,6 +74,9 @@ smallButton = UIButton("Small.png", 20, 112, 40, 26)
 
 deleteButton = UIButton("Delete.png", 20, 300, 40, 40)
 deleting = False
+
+editButton = UIButton("Edit.png", 20, 240, 40, 40)
+editing = False
 
 #
 # TEXT STUFF
@@ -158,6 +161,11 @@ while running:
 			element.draw(UISurface, COLOR_RED)
 			if(MouseDown):
 				UIElements.remove(element)
+		if(editing and element.isOn(MousePosX - 80, MousePosY - 20)):
+			element.draw(UISurface, COLOR_BLUE);
+			if(MouseDown):
+				HoldingElement = element
+				UIElements.remove(element)
 		else:
 			element.draw(UISurface)
 			
@@ -177,6 +185,12 @@ while running:
 		deleteButton.draw(screen, COLOR_RED)
 	else:
 		deleteButton.draw(screen)
+		
+	if(editing):
+		editButton.draw(screen, COLOR_BLUE)
+		deleting = False
+	else:
+		editButton.draw(screen)
 	
 	pygame.display.flip()
 	for event in pygame.event.get():
@@ -200,12 +214,19 @@ while running:
 				HoldingElement.y = MousePosY - 20
 				UIElements.append(HoldingElement)
 				HoldingElement = None
+				editing = False
 			
 			if(deleteButton.isOn(event.pos[0], event.pos[1])):
 				if(deleting):
 					deleting = False
 				else:
 					deleting = True
+			elif(editButton.isOn(event.pos[0], event.pos[1])):
+				if(editing):
+					editing = False
+				else:
+					editing = True
+					deleting = False
 			elif(smallButton.isOn(event.pos[0], event.pos[1])):
 				HoldingElement = TextWidget(0, 0, "TEXT!", 1)
 				
