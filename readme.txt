@@ -14,6 +14,9 @@ REQUIREMENTS:
 - Pygame
 
 CHANGELOG:
+	Version 1.1.1:
+		+ Bug fixes
+
 	Version 1.1.0:
 		+ You can now edit placed widgets
 		+ Widgets are now centered on the cursor

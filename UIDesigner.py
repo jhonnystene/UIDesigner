@@ -23,7 +23,7 @@
 
 import pygame, json
 
-print("UIDesigner version 1.1.0")
+print("UIDesigner version 1.1.1")
 print("By Johnny \"jhonnystene\" Stene.")
 print("jhonnystene@protonmail.com")
 print("This program is free software; you can redistribute it and/or modify")
@@ -139,8 +139,11 @@ class TextWidget:
 		surface.blit(render, (drawX, drawY))
 
 	def isOn(self, x, y):
-		if(x > self.x and x < self.x + self.width):
-			if(y > self.y and y < self.y + self.height):
+		drawX = self.x - (self.width / 2)
+		drawY = self.y - (self.height / 2)
+		
+		if(x > drawX and x < drawX + self.width):
+			if(y > drawY and y < drawY + self.height):
 				return True
 		return False
 		
