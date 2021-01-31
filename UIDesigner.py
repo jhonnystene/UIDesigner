@@ -75,7 +75,7 @@ smallButton = UIButton("Small.png", 20, 112, 40, 26)
 deleteButton = UIButton("Delete.png", 20, 300, 40, 40)
 deleting = False
 
-editButton = UIButton("Edit.png", 20, 240, 40, 40)
+editButton = UIButton("Edit.png", 20, 250, 40, 40)
 editing = False
 
 #
